@@ -35,7 +35,7 @@ class ReminderListViewController: UICollectionViewController {
         snapshot.appendItems(Reminder.sampleData.map { $0.title })
         dataSource.apply(snapshot)
         
-        collectionView.dataSource = dataSource
+        collectionView.dataSource = dataSource /// スナップショットが、データセットのデータの見た目を決める
     }
     
     /// ref https://qiita.com/ddd503/items/205002b44b7a22e5ba13
