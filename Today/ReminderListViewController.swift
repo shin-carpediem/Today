@@ -9,6 +9,7 @@ import UIKit
 
 class ReminderListViewController: UICollectionViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
     
     var dataSource: DataSource!
     
@@ -26,8 +27,15 @@ class ReminderListViewController: UICollectionViewController {
         }
         
         dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: <#T##IndexPath#>, item: itemIdentifier)
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
+        
+        var snapshot = Snapshot()
+        snapshot.appendSections([0]) /// For now, you’re adding a single section.
+        snapshot.appendItems(Reminder.sampleData.map { $0.title })
+        dataSource.apply(snapshot)
+        
+        collectionView.dataSource = dataSource
     }
     
     /// ref https://qiita.com/ddd503/items/205002b44b7a22e5ba13
