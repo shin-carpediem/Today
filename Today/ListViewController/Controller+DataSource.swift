@@ -1,11 +1,3 @@
-//
-//  Controller+DataSource.swift
-//  Today
-//
-//  Created by shinichiro.aoki on 2022/04/12.
-//
-
-import Foundation
 import UIKit
 
 extension ReminderListViewController {
@@ -19,6 +11,10 @@ extension ReminderListViewController {
         contentConfiguration.secondaryText = reminder.dueDate.dayAndTimeText
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
         cell.contentConfiguration = contentConfiguration
+        
+        var doneButtonConfiguration = doneButtonConfiguration(for: reminder)
+        doneButtonConfiguration.tintColor = .todayListCellDoneButtonTint
+        cell.accessories = [.customView(configuration: doneButtonConfiguration), .disclosureIndicator(displayed: .always)]
         
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
         backgroundConfiguration.backgroundColor = .todayListCellBackground
