@@ -6,7 +6,7 @@ extension UIColor {
     }
     
     class var todayListCellBackground: UIColor {
-        UIColor(red: 0.3, green: 0.3, blue: 0.5, alpha: 1.0)
+        UIColor(red: 0.1, green: 0.3, blue: 0.5, alpha: 1.0)
     }
     
     class var todayPrimaryTint : UIColor {

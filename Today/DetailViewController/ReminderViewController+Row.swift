@@ -1,6 +1,6 @@
 import UIKit
 
-extension ReminderListViewController {
+extension ReminderViewController {
     enum Row: Hashable {
         case viewDate
         case viewNotes
