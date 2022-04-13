@@ -21,7 +21,7 @@ extension ReminderListViewController {
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
         /// err: Type 'UIColor?' has no member 'todayListCellBackground'
 //        backgroundConfiguration.backgroundColor = .todayListCellBackground
-        backgroundConfiguration.backgroundColor = UIColor(red: 1.0, green: 0.8, blue: 0.9, alpha: 1.0)
+        backgroundConfiguration.backgroundColor = .cyan
         cell.backgroundConfiguration = backgroundConfiguration
     }
     
