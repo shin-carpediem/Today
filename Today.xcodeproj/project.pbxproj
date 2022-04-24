@@ -22,6 +22,7 @@
 		0B6FECFD280699DE006F24E3 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FECFC280699DE006F24E3 /* ReminderViewController.swift */; };
 		0B6FED0028069F1E006F24E3 /* ReminderViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FECFF28069F1E006F24E3 /* ReminderViewController+Row.swift */; };
 		0B6FED042806ADC8006F24E3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FED032806ADC8006F24E3 /* Color.swift */; };
+		F588D6BD2814EACE00634ACD /* ReminderViewController+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F588D6BC2814EACE00634ACD /* ReminderViewController+Section.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0B6FECFC280699DE006F24E3 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		0B6FECFF28069F1E006F24E3 /* ReminderViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Row.swift"; sourceTree = "<group>"; };
 		0B6FED032806ADC8006F24E3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		F588D6BC2814EACE00634ACD /* ReminderViewController+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Section.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				0B6FECE828054E75006F24E3 /* ReminderListViewController.swift */,
 				0B6FECF5280573EB006F24E3 /* ReminderListViewController+DataSource.swift */,
 				0B6FECFA28068738006F24E3 /* ReminderListViewController+Actions.swift */,
+				F588D6BC2814EACE00634ACD /* ReminderViewController+Section.swift */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				0B6FECFB28068738006F24E3 /* ReminderListViewController+Actions.swift in Sources */,
 				0B6FECFD280699DE006F24E3 /* ReminderViewController.swift in Sources */,
 				0B6FECD228054B03006F24E3 /* AppDelegate.swift in Sources */,
+				F588D6BD2814EACE00634ACD /* ReminderViewController+Section.swift in Sources */,
 				0B6FECD428054B03006F24E3 /* SceneDelegate.swift in Sources */,
 				0B6FED042806ADC8006F24E3 /* Color.swift in Sources */,
 				0B6FED0028069F1E006F24E3 /* ReminderViewController+Row.swift in Sources */,
@@ -300,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -354,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
