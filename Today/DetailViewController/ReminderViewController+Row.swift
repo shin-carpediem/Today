@@ -7,6 +7,8 @@ extension ReminderViewController {
         case viewNotes
         case viewTime
         case viewTitle
+        case editDate(Date)
+        case editText(String?)
         
         var imageName: String? {
             switch self {
@@ -18,9 +20,7 @@ extension ReminderViewController {
         }
         
         var image: UIImage? {
-            guard let imageName = imageName else {
-                return nil
-            }
+            guard let imageName = imageName else { return nil }
             let configuration = UIImage.SymbolConfiguration(textStyle: .headline)
             return UIImage(systemName: imageName, withConfiguration: configuration)
         }
