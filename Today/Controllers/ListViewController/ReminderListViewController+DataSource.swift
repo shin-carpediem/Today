@@ -13,7 +13,7 @@ extension ReminderListViewController {
         
     func updateSnapshot(reloading ids: [Reminder.ID] = []) {
         var snapshot = Snapshot()
-        snapshot.appendSections([0]) /// For now, you’re adding a single section.
+        snapshot.appendSections([0])
         snapshot.appendItems(reminders.map { $0.id })
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
