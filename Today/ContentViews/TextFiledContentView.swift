@@ -3,7 +3,7 @@ import UIKit
 class TextFieldContentView: UIView, UIContentView {
     struct Configuration: UIContentConfiguration {
         var text: String? = ""
-        var onChange: (String)->Void = { _ in }
+        var onChange: (String) -> Void = { _ in }
         
         func makeContentView() -> UIView & UIContentView {
             return TextFieldContentView(self)
@@ -16,6 +16,18 @@ class TextFieldContentView: UIView, UIContentView {
             configure(configuration: configuration)
         }
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(configuration: UIContentConfiguration) {
+        guard let configuration = configuration as? Configuration else { return }
+        textField.text = configuration.text
+    }
+    
+    // MARK: override
+    
     override var intrinsicContentSize: CGSize {
         CGSize(width: 0, height: 44)
     }
@@ -28,14 +40,7 @@ class TextFieldContentView: UIView, UIContentView {
         textField.clearButtonMode = .whileEditing
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(configuration: UIContentConfiguration) {
-        guard let configuration = configuration as? Configuration else { return }
-        textField.text = configuration.text
-    }
+    // MARK: private
     
     @objc private func didChange(_ sender: UITextField) {
         guard let configuration = configuration as? TextFieldContentView.Configuration else { return }

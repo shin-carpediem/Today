@@ -1,12 +1,8 @@
 import UIKit
 
 class ReminderViewController: UICollectionViewController {
-    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>
-    
     var reminder: Reminder
     var workingReminder: Reminder
-    private var dataSource: DataSource!
     
     init(reminder: Reminder) {
         self.reminder = reminder
@@ -21,6 +17,8 @@ class ReminderViewController: UICollectionViewController {
     required init?(coder: NSCoder) {
         fatalError("Always initialize ReminderViewController usinginit(reminder:)")
     }
+    
+    // MARK: override
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +60,13 @@ class ReminderViewController: UICollectionViewController {
         }
         cell.tintColor = .todayPrimaryTint
     }
+    
+    // MARK: private
+    
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>
+    
+    private var dataSource: DataSource!
     
     private func prepareForEditing() {
         updateShapshotForEditing()

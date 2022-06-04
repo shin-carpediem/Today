@@ -4,6 +4,14 @@ class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var reminders: [Reminder] = Reminder.sampleData
     
+    func showDetail(for id: Reminder.ID) {
+        let reminder = reminder(for: id)
+        let viewController = ReminderViewController(reminder: reminder)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    // MARK: override
+    
     override func viewDidLoad() {
         super.viewDidLoad() /// 読み込み系ライフサイクルメソッド
         
@@ -27,11 +35,7 @@ class ReminderListViewController: UICollectionViewController {
         return false
     }
     
-    func showDetail(for id: Reminder.ID) {
-        let reminder = reminder(for: id)
-        let viewController = ReminderViewController(reminder: reminder)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
+    // MARK: private
     
     /// ref https://qiita.com/ddd503/items/205002b44b7a22e5ba13
     private func listLayout() -> UICollectionViewCompositionalLayout {

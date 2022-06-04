@@ -34,6 +34,8 @@ class DatePickerContentView: UIView, UIContentView {
         datePicker.date = configuration.date
     }
     
+    // MARK: private
+    
     @objc private func didPick(_ sender: UIDatePicker) {
         guard let configuration = configuration as? DatePickerContentView.Configuration else { return }
         configuration.onChange(sender.date)
