@@ -1,6 +1,6 @@
 import UIKit
 
-class ReminderViewController: UICollectionViewController {
+final class ReminderViewController: UICollectionViewController {
     var reminder: Reminder
     var workingReminder: Reminder
     
