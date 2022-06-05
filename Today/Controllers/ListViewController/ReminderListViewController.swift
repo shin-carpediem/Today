@@ -3,30 +3,24 @@ import UIKit
 class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var reminders: [Reminder] = Reminder.sampleData
-    
-    func showDetail(for id: Reminder.ID) {
-        let reminder = reminder(for: id)
-        let viewController = ReminderViewController(reminder: reminder)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
+        
     // MARK: override
     
     override func viewDidLoad() {
-        super.viewDidLoad() /// 読み込み系ライフサイクルメソッド
+        // 読み込み系ライフサイクルメソッド
+        super.viewDidLoad()
         
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
-        
         dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Reminder.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
         
         updateSnapshot()
         
-        collectionView.dataSource = dataSource /// スナップショットが、データセットのデータの見た目を決める
+        collectionView.dataSource = dataSource
     }
     
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -36,6 +30,12 @@ class ReminderListViewController: UICollectionViewController {
     }
     
     // MARK: private
+    
+    private func showDetail(for id: Reminder.ID) {
+        let reminder = reminder(for: id)
+        let viewController = ReminderViewController(reminder: reminder)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     
     /// ref https://qiita.com/ddd503/items/205002b44b7a22e5ba13
     private func listLayout() -> UICollectionViewCompositionalLayout {

@@ -8,6 +8,7 @@ struct Reminder: Equatable, Identifiable {
     var isComplete: Bool = false
 }
 
+// Array<Element>型で、ElementがReminder型のみにエクステンションを有効にする。
 extension Array where Element == Reminder {
     func indexOfReminder(with id: Reminder.ID) -> Self.Index {
         guard let index = firstIndex(where: { $0.id == id }) else {

@@ -11,9 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backgroundColor = .todayListCellBackground
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        // Some of the list view’s content appears behind the navigation bar.
-        // If the scrolled content reaches the navigation bar,
-        // UIKit applies the default appearance settings.
+        // リストビューのコンテンツの一部は、ナビゲーションバーの後ろに表示される。
+        // スクロールされたコンテンツがナビゲーションバーに到達すると、デフォルトの外観設定を適用するようにする。
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         return true
     }

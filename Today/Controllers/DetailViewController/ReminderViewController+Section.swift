@@ -9,7 +9,8 @@ extension ReminderViewController {
         
         var name: String {
             switch self {
-            case .view: return ""
+            case .view:
+                return ""
             case .title:
                 return NSLocalizedString("reminder.view.controller.title", comment: "")
             case .date:

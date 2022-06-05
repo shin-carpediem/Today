@@ -16,6 +16,14 @@ class TextViewContentView: UIView, UIContentView {
             configure(configuration: configuration)
         }
     }
+    
+    func configure(configuration: UIContentConfiguration) {
+        guard let configuration = configuration as? Configuration else { return }
+        textView.text = configuration.text
+    }
+    
+    // MARK: override
+    
     override var intrinsicContentSize: CGSize {
         CGSize(width: 0, height: 44)
     }
@@ -31,11 +39,6 @@ class TextViewContentView: UIView, UIContentView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func configure(configuration: UIContentConfiguration) {
-        guard let configuration = configuration as? Configuration else { return }
-        textView.text = configuration.text
     }
 }
 

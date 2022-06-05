@@ -4,6 +4,24 @@ final class ReminderViewController: UICollectionViewController {
     var reminder: Reminder
     var workingReminder: Reminder
     
+    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
+        let section = section(for: indexPath)
+        switch (section, row) {
+        case (_, .header(let title)):
+            cell.contentConfiguration = headerConfiguration(for: cell, with: title)
+        case (.view, _):
+            cell.contentConfiguration = defaultConfiguration(for: cell, at: row)
+        case (.title, .editText(let title)):
+            cell.contentConfiguration = titleConfiguration(for: cell, with: title)
+        case (.date, .editDate(let date)):
+            cell.contentConfiguration = dateConfiguration(for: cell, with: date)
+        case (.notes, .editText(let notes)):
+            cell.contentConfiguration = notesConfiguration(for: cell, with: notes)
+        default: fatalError("Unexpected combination of section and row.")
+        }
+        cell.tintColor = .todayPrimaryTint
+    }
+    
     init(reminder: Reminder) {
         self.reminder = reminder
         self.workingReminder = reminder
@@ -42,25 +60,7 @@ final class ReminderViewController: UICollectionViewController {
             prepareForViewing()
         }
     }
-    
-    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
-        let section = section(for: indexPath)
-        switch (section, row) {
-        case (_, .header(let title)):
-            cell.contentConfiguration = headerConfiguration(for: cell, with: title)
-        case (.view, _):
-            cell.contentConfiguration = defaultConfiguration(for: cell, at: row)
-        case (.title, .editText(let title)):
-            cell.contentConfiguration = titleConfiguration(for: cell, with: title)
-        case (.date, .editDate(let date)):
-            cell.contentConfiguration = dateConfiguration(for: cell, with: date)
-        case (.notes, .editText(let notes)):
-            cell.contentConfiguration = notesConfiguration(for: cell, with: notes)
-        default: fatalError("Unexpected combination of section and row.")
-        }
-        cell.tintColor = .todayPrimaryTint
-    }
-    
+
     // MARK: private
     
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
@@ -95,8 +95,8 @@ final class ReminderViewController: UICollectionViewController {
         dataSource.apply(snapshot)
     }
     
-    /// In view mode, all items are displayed in section 0.
-    ///  In editing mode, the title, date, and notes are separated into sections 1, 2, and 3, respectively.
+    // 表示モードでは、すべての項目がセクション0に表示される。
+    // 編集モードでは、タイトル、日付、およびメモがそれぞれセクション1、2、および3に分割される。
     private func section(for indexPath: IndexPath) -> Section {
         let sectionNumber = isEditing ? indexPath.section + 1 : indexPath.section
         guard let section = Section(rawValue: sectionNumber) else {

@@ -16,6 +16,11 @@ class DatePickerContentView: UIView, UIContentView {
             configure(configuration: configuration)
         }
     }
+    
+    func configure(configuration: UIContentConfiguration) {
+        guard let configuration = configuration as? Configuration else { return }
+        datePicker.date = configuration.date
+    }
 
     init(_ configuration: UIContentConfiguration) {
         self.configuration = configuration
@@ -27,11 +32,6 @@ class DatePickerContentView: UIView, UIContentView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func configure(configuration: UIContentConfiguration) {
-        guard let configuration = configuration as? Configuration else { return }
-        datePicker.date = configuration.date
     }
     
     // MARK: private
