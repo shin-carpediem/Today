@@ -7,6 +7,7 @@ final class ReminderViewController: UICollectionViewController {
         }
     }
     var workingReminder: Reminder
+    var isAddingNewReminder = false
     var onChange: (Reminder) -> Void
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
@@ -65,7 +66,11 @@ final class ReminderViewController: UICollectionViewController {
         if editing {
             prepareForEditing()
         } else {
-            prepareForViewing()
+            if !isAddingNewReminder {
+                prepareForViewing()
+            } else {
+                onChange(workingReminder)
+            }
         }
     }
 
