@@ -21,20 +21,22 @@ class DatePickerContentView: UIView, UIContentView {
         guard let configuration = configuration as? Configuration else { return }
         datePicker.date = configuration.date
     }
+    
+    // MARK: - UIContentConfiguration
 
     init(_ configuration: UIContentConfiguration) {
         self.configuration = configuration
         super.init(frame: .zero)
         addPinnedSubview(datePicker)
-        datePicker.addTarget(self, action: #selector(didPick(_:)), for: .valueChanged)
         datePicker.preferredDatePickerStyle = .inline
+        datePicker.addTarget(self, action: #selector(didPick(_:)), for: .valueChanged)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: private
+    // MARK: - private
     
     @objc private func didPick(_ sender: UIDatePicker) {
         guard let configuration = configuration as? DatePickerContentView.Configuration else { return }

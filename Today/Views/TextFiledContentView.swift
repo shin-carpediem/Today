@@ -22,6 +22,8 @@ class TextFieldContentView: UIView, UIContentView {
         textField.text = configuration.text
     }
     
+    // MARK: - UIContentConfiguration
+    
     init(_ configuration: UIContentConfiguration) {
         self.configuration = configuration
         super.init(frame: .zero)
@@ -34,13 +36,13 @@ class TextFieldContentView: UIView, UIContentView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: override
+    // MARK: - override
     
     override var intrinsicContentSize: CGSize {
         CGSize(width: 0, height: 44)
     }
 
-    // MARK: private
+    // MARK: - private & objc
     
     @objc private func didChange(_ sender: UITextField) {
         guard let configuration = configuration as? TextFieldContentView.Configuration else { return }

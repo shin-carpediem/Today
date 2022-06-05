@@ -1,8 +1,13 @@
 import UIKit
 
 final class ReminderViewController: UICollectionViewController {
-    var reminder: Reminder
+    var reminder: Reminder {
+        didSet {
+            onChange(reminder)
+        }
+    }
     var workingReminder: Reminder
+    var onChange: (Reminder) -> Void
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
         let section = section(for: indexPath)
@@ -22,9 +27,12 @@ final class ReminderViewController: UICollectionViewController {
         cell.tintColor = .todayPrimaryTint
     }
     
-    init(reminder: Reminder) {
+    // MARK: - UICollectionViewController
+    
+    init(reminder: Reminder, onChange: @escaping (Reminder) -> Void) {
         self.reminder = reminder
         self.workingReminder = reminder
+        self.onChange = onChange
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         listConfiguration.showsSeparators = false
         listConfiguration.headerMode = .firstItemInSection
@@ -36,7 +44,7 @@ final class ReminderViewController: UICollectionViewController {
         fatalError("Always initialize ReminderViewController usinginit(reminder:)")
     }
     
-    // MARK: override
+    // MARK: - override
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +69,7 @@ final class ReminderViewController: UICollectionViewController {
         }
     }
 
-    // MARK: private
+    // MARK: - private
     
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>
@@ -69,6 +77,7 @@ final class ReminderViewController: UICollectionViewController {
     private var dataSource: DataSource!
     
     private func prepareForEditing() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelEdit))
         updateShapshotForEditing()
     }
     
@@ -82,6 +91,7 @@ final class ReminderViewController: UICollectionViewController {
     }
     
     private func prepareForViewing() {
+        navigationItem.leftBarButtonItem = nil
         if workingReminder != reminder {
             reminder = workingReminder
         }
@@ -103,5 +113,12 @@ final class ReminderViewController: UICollectionViewController {
             fatalError("Unable to find matching section")
         }
         return section
+    }
+    
+    // MARK: - objc
+    
+    @objc func didCancelEdit() {
+        workingReminder = reminder
+        setEditing(false, animated: true)
     }
 }

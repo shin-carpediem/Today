@@ -4,7 +4,7 @@ class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var reminders: [Reminder] = Reminder.sampleData
         
-    // MARK: override
+    // MARK: - override
     
     override func viewDidLoad() {
         // 読み込み系ライフサイクルメソッド
@@ -29,11 +29,16 @@ class ReminderListViewController: UICollectionViewController {
         return false
     }
     
-    // MARK: private
+    // MARK: - UICollectionViewController
+    
+    // MARK: - private
     
     private func showDetail(for id: Reminder.ID) {
         let reminder = reminder(for: id)
-        let viewController = ReminderViewController(reminder: reminder)
+        let viewController = ReminderViewController(reminder: reminder) { [weak self] reminder in
+            self?.update(reminder, with: reminder.id)
+            self?.updateSnapshot(reloading: [reminder.id])
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
     

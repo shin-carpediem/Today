@@ -151,9 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				0B6FECF72806861F006F24E3 /* UIComponent */,
-				F588D6C72815483200634ACD /* TextViewContentView.swift */,
 				F588D6C328153B6E00634ACD /* TextFiledContentView.swift */,
 				F588D6C9281548DD00634ACD /* DatePickerContentView.swift */,
+				F588D6C72815483200634ACD /* TextViewContentView.swift */,
 				F588D6C128151C4D00634ACD /* UIView+PinnedSubview.swift */,
 				F588D6C5281540FE00634ACD /* Configuration+Stateless.swift */,
 			);

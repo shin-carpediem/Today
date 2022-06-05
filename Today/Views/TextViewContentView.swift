@@ -22,12 +22,8 @@ class TextViewContentView: UIView, UIContentView {
         textView.text = configuration.text
     }
     
-    // MARK: override
+    // MARK: - UIContentConfiguration
     
-    override var intrinsicContentSize: CGSize {
-        CGSize(width: 0, height: 44)
-    }
-
     init(_ configuration: UIContentConfiguration) {
         self.configuration = configuration
         super.init(frame: .zero)
@@ -39,6 +35,12 @@ class TextViewContentView: UIView, UIContentView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - override
+    
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: 0, height: 44)
     }
 }
 
