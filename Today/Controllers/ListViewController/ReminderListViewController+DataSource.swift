@@ -3,14 +3,7 @@ import UIKit
 extension ReminderListViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, Reminder.ID>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>
-    
-    var reminderCompletedValue: String {
-        NSLocalizedString("Completed", comment: "Reminder completed value")
-    }
-    var reminderNotCompletedValue: String {
-        NSLocalizedString("Not completed", comment: "Reminder not completed value")
-    }
-        
+            
     func updateSnapshot(reloading ids: [Reminder.ID] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
@@ -67,6 +60,14 @@ extension ReminderListViewController {
     }
     
     // MARK: - private
+    
+    private var reminderCompletedValue: String {
+        NSLocalizedString("Completed", comment: "Reminder completed value")
+    }
+    
+    private var reminderNotCompletedValue: String {
+        NSLocalizedString("Not completed", comment: "Reminder not completed value")
+    }
     
     private func doneButtonAccessibilityAction(for reminder: Reminder) -> UIAccessibilityCustomAction {
         let name = NSLocalizedString("Toggle completion", comment: "Reminder done button accessibility label")

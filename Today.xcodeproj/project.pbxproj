@@ -103,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				0B6FECE628054D8D006F24E3 /* Reminder.swift */,
-				0B6FECEE28056E10006F24E3 /* Date+Today.swift */,
 				0B6FECF028056E2D006F24E3 /* UIColor+Today.swift */,
+				0B6FECEE28056E10006F24E3 /* Date+Today.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,12 +119,12 @@
 			path = ListViewController;
 			sourceTree = "<group>";
 		};
-		0B6FECF72806861F006F24E3 /* UIComponent */ = {
+		0B6FECF72806861F006F24E3 /* Parts */ = {
 			isa = PBXGroup;
 			children = (
 				0B6FECF828068647006F24E3 /* ReminderDoneButton.swift */,
 			);
-			path = UIComponent;
+			path = Parts;
 			sourceTree = "<group>";
 		};
 		0B6FECFE28069EBF006F24E3 /* DetailViewController */ = {
@@ -150,7 +150,7 @@
 		F588D6C028151C1600634ACD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0B6FECF72806861F006F24E3 /* UIComponent */,
+				0B6FECF72806861F006F24E3 /* Parts */,
 				F588D6C328153B6E00634ACD /* TextFiledContentView.swift */,
 				F588D6C9281548DD00634ACD /* DatePickerContentView.swift */,
 				F588D6C72815483200634ACD /* TextViewContentView.swift */,

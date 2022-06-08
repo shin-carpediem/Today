@@ -1,13 +1,13 @@
 import UIKit
 
-class ReminderListViewController: UICollectionViewController {
+final class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var reminders: [Reminder] = Reminder.sampleData
         
     // MARK: - override
     
     override func viewDidLoad() {
-        // 読み込み系ライフサイクルメソッド
+        // Void型をoverrideした場合は、親クラスのメソッドも呼び出す必要あり。
         super.viewDidLoad()
         
         let listLayout = listLayout()
