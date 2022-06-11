@@ -12,4 +12,8 @@ extension UIColor {
     class var todayPrimaryTint : UIColor {
         UIColor(red: 0.5, green: 0.2, blue: 0.4, alpha: 1.0)
     }
+    
+    class var todayGradientFutureBegin : UIColor {
+        UIColor(red: 0.3, green: 0.1, blue: 0.3, alpha: 1.0)
+    }
 }

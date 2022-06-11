@@ -1,6 +1,8 @@
 import UIKit
 
 class ProgressHeaderView: UICollectionReusableView {
+    static var elementKind: String { UICollectionView.elementKindSectionHeader }
+    
     var progress: CGFloat = 0 {
         didSet {
             heightConstraint?.constant = progress * bounds.height
@@ -9,7 +11,7 @@ class ProgressHeaderView: UICollectionReusableView {
             }
         }
     }
-    
+        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -23,6 +25,7 @@ class ProgressHeaderView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        heightConstraint?.constant = progress * bounds.height
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 0.5 * containerView.bounds.width
     }
