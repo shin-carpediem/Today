@@ -2,7 +2,7 @@ import UIKit
 
 final class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
-    var reminders: [Reminder] = []
+    var reminders: [Reminder] = Reminder.sampleData
     var filteredReminders: [Reminder] {
         return reminders
             .filter { listStyle.shouldInclude(date: $0.dueDate) }
