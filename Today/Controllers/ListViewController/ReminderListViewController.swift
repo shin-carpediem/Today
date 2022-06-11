@@ -21,6 +21,14 @@ final class ReminderListViewController: UICollectionViewController {
         }
         return progress
     }
+    
+    func refreshBackground() {
+        collectionView.backgroundView = nil
+        let backgroundView = UIView()
+        let gradientLayer = CAGradientLayer.gradientLayer(for: listStyle, in: collectionView.frame)
+        backgroundView.layer.addSublayer(gradientLayer)
+        collectionView.backgroundView = backgroundView
+    }
         
     // MARK: - override
     
@@ -78,14 +86,6 @@ final class ReminderListViewController: UICollectionViewController {
     // MARK: - UICollectionViewController
     
     // MARK: - private
-    
-    private func refreshBackground() {
-        collectionView.backgroundView = nil
-        let backgroundView = UIView()
-        let gradientLayer = CAGradientLayer.gradientLayer(for: listStyle, in: collectionView.frame)
-        backgroundView.layer.addSublayer(gradientLayer)
-        collectionView.backgroundView = backgroundView
-    }
     
     private func showDetail(for id: Reminder.ID) {
         let reminder = reminder(for: id)
