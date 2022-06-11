@@ -11,6 +11,7 @@
         <!--Reminder List View Controller-->
         <scene sceneID="Knt-a8-cfJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQC-UT-0yX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="QqN-B4-bXy" customClass="ReminderListViewController" customModule="Today" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ohR-v5-TPm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -39,13 +40,13 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="IG2-2o-e69"/>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQC-UT-0yX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="583" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mbp-No-WY7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QW1-5z-1oB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y99-Ba-I2z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="36K-Z4-pyz">
@@ -57,7 +58,6 @@
                         <segue destination="QqN-B4-bXy" kind="relationship" relationship="rootViewController" id="Oy4-HH-2zy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QW1-5z-1oB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-242.0289855072464" y="37.5"/>
         </scene>

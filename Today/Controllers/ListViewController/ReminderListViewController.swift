@@ -2,7 +2,7 @@ import UIKit
 
 final class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
-    var reminders: [Reminder] = Reminder.sampleData
+    var reminders: [Reminder] = []
     var filteredReminders: [Reminder] {
         return reminders
             .filter { listStyle.shouldInclude(date: $0.dueDate) }
@@ -28,6 +28,16 @@ final class ReminderListViewController: UICollectionViewController {
         let gradientLayer = CAGradientLayer.gradientLayer(for: listStyle, in: collectionView.frame)
         backgroundView.layer.addSublayer(gradientLayer)
         collectionView.backgroundView = backgroundView
+    }
+    
+    func showError(_ error: Error) {
+        let alertTitle = NSLocalizedString("Error", comment: "Error alert title")
+        let alert = UIAlertController(title: alertTitle, message: error.localizedDescription, preferredStyle: .alert)
+        let actionTitle = NSLocalizedString("OK", comment: "Alert OK button title")
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default) { [weak self] _ in
+            self?.dismiss(animated: true)
+        })
+        present(alert, animated: true, completion: nil)
     }
         
     // MARK: - override
@@ -62,6 +72,8 @@ final class ReminderListViewController: UICollectionViewController {
         updateSnapshot()
         
         collectionView.dataSource = dataSource
+        
+        prepareReminderStore()
     }
     
     override func viewWillAppear(_ animated: Bool) {

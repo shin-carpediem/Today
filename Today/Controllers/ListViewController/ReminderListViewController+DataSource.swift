@@ -44,6 +44,21 @@ extension ReminderListViewController {
         updateSnapshot()
     }
     
+    func prepareReminderStore() {
+        Task {
+            do {
+                try await reminderStore.requestAccess()
+            } catch TodayError.accessDenied, TodayError.accessRestricted {
+                #if DEBUG
+                reminders = Reminder.sampleData
+                #endif
+            } catch {
+                showError(error)
+            }
+            updateSnapshot()
+        }
+    }
+    
     func add(_ reminder: Reminder) {
         reminders.append(reminder)
     }
@@ -72,6 +87,8 @@ extension ReminderListViewController {
     private var reminderNotCompletedValue: String {
         NSLocalizedString("Not completed", comment: "Reminder not completed value")
     }
+    
+    private var reminderStore: ReminderStore { ReminderStore.shared }
     
     private func doneButtonAccessibilityAction(for reminder: Reminder) -> UIAccessibilityCustomAction {
         let name = NSLocalizedString("Toggle completion", comment: "Reminder done button accessibility label")
