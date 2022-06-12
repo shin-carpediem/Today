@@ -94,9 +94,7 @@ final class ReminderListViewController: UICollectionViewController {
         guard elementKind == ProgressHeaderView.elementKind, let progressView = view as? ProgressHeaderView else { return }
         progressView.progress = progress
     }
-    
-    // MARK: - UICollectionViewController
-    
+        
     // MARK: - private
     
     private func showDetail(for id: Reminder.ID) {
