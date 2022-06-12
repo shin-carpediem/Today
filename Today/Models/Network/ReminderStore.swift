@@ -3,9 +3,7 @@ import EventKit
 
 class ReminderStore {
     static let shared = ReminderStore()
-    
-    private let ekStore = EKEventStore()
-    
+        
     var isAvailable: Bool {
         EKEventStore.authorizationStatus(for: .reminder) == .authorized
     }
@@ -45,5 +43,16 @@ class ReminderStore {
             }
         }
         return reminders
+    }
+    
+    // - MARK: private
+    
+    private let ekStore = EKEventStore()
+    
+    private func read(with id: Reminder.ID) throws -> EKReminder {
+        guard let ekReminder = ekStore.calendarItem(withIdentifier: id) as? EKReminder else {
+            throw TodayError.failedReadingCalendarItem
+        }
+        return ekReminder
     }
 }
