@@ -13,6 +13,10 @@ extension UIColor {
         UIColor(red: 0.5, green: 0.2, blue: 0.4, alpha: 1.0)
     }
     
+    class var todaySubTint : UIColor {
+        UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
     class var todayGradientTodayBegin : UIColor {
         UIColor(red: 0.3, green: 0.3, blue: 0.5, alpha: 1.0)
     }
