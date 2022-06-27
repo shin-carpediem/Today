@@ -22,7 +22,11 @@ extension ReminderListViewController {
         let reminder = reminder(for: id)
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = reminder.title
+        contentConfiguration.textProperties.color = .todaySubTint
+        contentConfiguration.textProperties.numberOfLines = 0
         contentConfiguration.secondaryText = reminder.dueDate.dayAndTimeText
+        contentConfiguration.secondaryTextProperties.color = .todaySubTint
+        contentConfiguration.secondaryTextProperties.numberOfLines = 1
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
         cell.contentConfiguration = contentConfiguration
         
