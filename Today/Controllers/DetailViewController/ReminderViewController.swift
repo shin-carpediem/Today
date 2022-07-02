@@ -42,7 +42,7 @@ final class ReminderViewController: UICollectionViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("Always initialize ReminderViewController usinginit(reminder:)")
+        fatalError("Always initialize ReminderViewController using init(reminder:)")
     }
     
     // MARK: - override
