@@ -45,7 +45,7 @@ extension ReminderListViewController {
         var reminder = reminder(for: id)
         reminder.isComplete.toggle()
         update(reminder, with: id)
-        updateSnapshot()
+        updateSnapshot(reloading: [id])
     }
     
     func prepareReminderStore() {
